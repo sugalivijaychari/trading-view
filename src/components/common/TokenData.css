@@ -1,0 +1,70 @@
+.token-data-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1000px; 
+    height: auto;
+    background-color: #1b1b1b; 
+    z-index: 999; 
+    border: 1px solid #005fb8; 
+    border-radius: 8px; 
+    color: white;
+    padding: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  }
+  
+  .token-data-container {
+    background-color: transparent; 
+    position: relative;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: -15px;
+    left: -10px; 
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 3px;
+    font-size: 10px;
+    border-radius: 5px;
+  }
+  
+  .token-data-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+  }
+  
+  .token-logo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 100px;
+  }
+  
+  .token-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 5px; 
+  }
+  
+  .token-symbol {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .token-details-section {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
+  
+  .token-details-section p {
+    margin: 5px 0; 
+    font-size: 14px;
+    white-space: normal;
+  }
+  

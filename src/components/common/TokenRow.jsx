@@ -5,7 +5,7 @@ import { green } from "@mui/material/colors";
 import { removeW } from "../../utils/funcs";
 import "./style.css";
 
-const TokenRow = ({ data }) => {
+const TokenRow = ({ data, onRowClick }) => {
   const [imageExists, setImageExists] = useState(false);
 
   // useEffect(() => {
@@ -21,8 +21,12 @@ const TokenRow = ({ data }) => {
   //     });
   // }, [data.symbol]);
 
+  const handleRowClick = () => {
+    onRowClick(data); // Call parent function and pass data
+  };
+
   return (
-    <tr>
+    <tr onClick={handleRowClick}>
       <td
         style={{
           display: "flex",

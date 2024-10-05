@@ -19,4 +19,6 @@ const RoutesComponent = () => {
   );
 };
 
+console.log("Printing something")
+
 export default RoutesComponent;

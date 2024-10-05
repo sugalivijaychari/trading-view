@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import TokenRow from "./common/TokenRow";
+import TokenData from "./TokenData";
 import "./style.css";
 
 const TokenTable = ({ tokenData }) => {
   const [sortedData, setSortedData] = useState([...tokenData]);
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
+  const [selectedToken, setSelectedToken] = useState(null);
+  const [showTokenData, setShowTokenData] = useState(false);
 
   const sortData = (key) => {
     let direction = "asc";
@@ -45,61 +48,57 @@ const TokenTable = ({ tokenData }) => {
   useEffect(() => {
     setSortedData(tokenData);
   }, [tokenData]);
+
+  const handleRowClick = (token) => {
+    setSelectedToken(token);
+    setShowTokenData(true);
+  };
+
+  const handleCloseOverlay = () => {
+    setShowTokenData(false);
+  };
+
   return (
-    <div className="table-container font-header" style={tableStyle}>
-      <table
-        className="custom-table"
-        style={{
-          width: "100%",
-          marginTop: "15px",
-          marginBottom: "20px",
-          fontSize: "medium",
-        }}
-      >
-        <thead className="font-header">
-          <tr>
-            <th
-              onClick={() => sortData("symbol")}
-              style={{ textAlign: "start" }}
-            >
-              TOKEN {renderSortIcon("symbol")}
-            </th>
-            <th
-              onClick={() => sortData("derivedUSD")}
-              style={{ textAlign: "start" }}
-            >
-              PRICE {renderSortIcon("derivedUSD")}
-            </th>
-            <th
-              onClick={() => sortData("tradeVolumeUSD")}
-              style={{ textAlign: "start" }}
-            >
-              MARKETCAP {renderSortIcon("tradeVolumeUSD")}
-            </th>
-            <th
-              onClick={() => sortData("totalLiquidityUSD")}
-              style={{ textAlign: "start" }}
-            >
-              LIQUIDITY {renderSortIcon("totalLiquidityUSD")}
-            </th>
-            <th
-              onClick={() => sortData("tradeVolume")}
-              style={{ textAlign: "start" }}
-            >
-              VOLUME {renderSortIcon("tradeVolume")}
-            </th>
-            <th style={{ textAlign: "start", paddingRight: "80px" }}>
-              TOKEN AGE
-            </th>
-            {/* <th>Token Age</th> */}
-          </tr>
-        </thead>
-        <tbody style={{ backgroundColor: "black" }}>
-          {[...sortedData].map((rowData, index) => (
-            <TokenRow data={rowData} key={index} />
-          ))}
-        </tbody>
-      </table>
+    <div style={{ position: "relative" }}> {/* Add relative positioning to parent div */}
+      {/* Table displaying rows */}
+      <div className="table-container font-header" style={{ zIndex: showTokenData ? 0 : 1 }}> {/* Keep table under overlay */}
+        <table
+          className="custom-table"
+          style={{
+            width: "100%",
+            marginTop: "15px",
+            marginBottom: "20px",
+            fontSize: "medium",
+          }}
+        >
+          <thead className="font-header">
+            <tr>
+              <th>TOKEN</th>
+              <th>PRICE</th>
+              <th>MARKETCAP</th>
+              <th>LIQUIDITY</th>
+              <th>VOLUME</th>
+              <th>TOKEN AGE</th>
+            </tr>
+          </thead>
+
+          <tbody style={{ backgroundColor: "black" }}>
+            {sortedData.map((rowData, index) => (
+              <TokenRow
+                key={index}
+                data={rowData}
+                onRowClick={handleRowClick} // Pass row click handler to TokenRow
+              />
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {showTokenData && selectedToken && (
+        <div className="token-data-overlay">
+          <TokenData tokenData={selectedToken} onClose={handleCloseOverlay} />
+        </div>
+      )}
     </div>
   );
 };

@@ -1,0 +1,38 @@
+{
+    "body": {
+        "tokens": [
+            {
+                "id": "0x4dc08b15ea0e10b96c41aec22fab934ba15c983e",
+                "name": "Wrapped TFuel",
+                "symbol": "WTFUEL",
+                "derivedETH": "1",
+                "tradeVolume": "3272272553.399199661639554166",
+                "tradeVolumeETH": "3271194441.144016287330495605690805",
+                "untrackedVolumeETH": "3262405979.082897276209981790772502",
+                "totalLiquidity": "6103141.705339126706501894",
+                "txCount": "519513",
+                "volume24HrsETH": 1336039.3856463432,
+                "volume24HrsUSD": 84438.63951293772,
+                "tradeVolumeUSD": "206741815.52",
+                "totalLiquidityUSD": "385722.90",
+                "derivedUSD": "0.0632"
+            },
+            {
+                "id": "0x22cb20636c2d853de2b140c2eaddbfd6c3643a39",
+                "name": "ThetaCash",
+                "symbol": "TBILL",
+                "derivedETH": "26.33920432120442085472864185232547",
+                "tradeVolume": "276907780.668249241",
+                "tradeVolumeETH": "2324714132.45068734871672344",
+                "untrackedVolumeETH": "2397673477.496897871376971210074418",
+                "totalLiquidity": "733.246849506",
+                "txCount": "245214",
+                "volume24HrsETH": 0,
+                "volume24HrsUSD": 0,
+                "tradeVolumeUSD": "146923586.77",
+                "totalLiquidityUSD": "1220.60",
+                "derivedUSD": "1.6647"
+            }
+        ]
+    }
+}
