@@ -1,5 +1,5 @@
 
-# trading-view
+# Trading View
 
 # Getting Started with Create React App
 
@@ -67,6 +67,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+## NOTE: This is delivered as an assignment. Video URL is https://www.loom.com/share/9f18a8be981e446baa8864a548142585?sid=a01ecd57-46aa-4c4d-882e-510183848ae0
+
 
 ### `npm run build` fails to minify
 
